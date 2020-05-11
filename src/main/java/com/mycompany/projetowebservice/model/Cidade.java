@@ -6,12 +6,13 @@
 package com.mycompany.projetowebservice.model;
 
 import br.alerario.ICidade;
+import java.io.Serializable;
 
 /**
  *
  * @author Wallace
  */
-public class Cidade implements ICidade{
+public class Cidade implements ICidade, Serializable{
     
     private int codigo;
     private String nome;
