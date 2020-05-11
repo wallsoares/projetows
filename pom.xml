@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.mycompany</groupId>
-    <artifactId>projetoWebService</artifactId>
+    <groupId>br.edu.utfpr</groupId>
+    <artifactId>mavenproject3</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>projetoWebService-1.0-SNAPSHOT</name>
+    <name>mavenproject3-1.0-SNAPSHOT</name>
     
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -14,14 +14,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <jakartaee>8.0</jakartaee>
+        <version.payara>5.192</version.payara>
     </properties>
-    
-    <repositories>
-        <repository>
-            <id>alerario-repo</id>
-            <url>https://raw.githubusercontent.com/alerario/javainterfaces/master/repositorio</url>
-        </repository>
-    </repositories>
     
     <dependencies>
         <dependency>
@@ -29,11 +23,6 @@
             <artifactId>javaee-api</artifactId>
             <version>${jakartaee}</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>alerario</groupId>
-            <artifactId>javainterfaces</artifactId>
-            <version>1.0</version>       
         </dependency>
     </dependencies>
     
@@ -83,6 +72,24 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>fish.payara.maven.plugins</groupId>
+                <artifactId>payara-micro-maven-plugin</artifactId>
+                <configuration>
+                    <payaraVersion>${version.payara}</payaraVersion>
+                    <deployWar>false</deployWar>
+                    <commandLineOptions>
+                        <option>
+                            <key>--autoBindHttp</key>
+                        </option>
+                        <option>
+                            <key>--deploy</key>
+                            <value>${project.build.directory}/${project.build.finalName}</value>
+                        </option>
+                    </commandLineOptions>
+                </configuration>
+                <version>1.0.5</version>
             </plugin>
         </plugins>
     </build>
