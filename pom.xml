@@ -16,12 +16,24 @@
         <jakartaee>8.0</jakartaee>
     </properties>
     
+    <repositories>
+        <repository>
+            <id>alerario-repo</id>
+            <url>https://raw.githubusercontent.com/alerario/javainterfaces/master/repositorio</url>
+        </repository>
+    </repositories>
+    
     <dependencies>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
             <version>${jakartaee}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>alerario</groupId>
+            <artifactId>javainterfaces</artifactId>
+            <version>1.0</version>       
         </dependency>
     </dependencies>
     
