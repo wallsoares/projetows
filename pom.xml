@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>br.edu.utfpr</groupId>
-    <artifactId>mavenproject3</artifactId>
+    <groupId>com.mycompany</groupId>
+    <artifactId>projetoWebService</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>mavenproject3-1.0-SNAPSHOT</name>
+    <name>projetoWebService-1.0-SNAPSHOT</name>
     
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -14,8 +14,15 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <jakartaee>8.0</jakartaee>
-        <version.payara>5.192</version.payara>
+        <version.payara>5.194</version.payara>
     </properties>
+    
+    <repositories>
+        <repository>
+            <id>alerario-repo</id>
+            <url>https://raw.githubusercontent.com/alerario/javainterfaces/master/repositorio</url>
+        </repository>
+    </repositories>
     
     <dependencies>
         <dependency>
@@ -24,7 +31,14 @@
             <version>${jakartaee}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>alerario</groupId>
+            <artifactId>javainterfaces</artifactId>
+            <version>1.0</version>       
+        </dependency>
     </dependencies>
+    
+
     
      <build>
         <plugins>
@@ -89,7 +103,7 @@
                         </option>
                     </commandLineOptions>
                 </configuration>
-                <version>1.0.5</version>
+                <version>1.0.6</version>
             </plugin>
         </plugins>
     </build>
