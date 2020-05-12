@@ -26,4 +26,21 @@ public class CrudCliente {
     public void add(Cliente c){
         listaCliente.add(c);
     }
+
+    public Cliente getCliente(int codigo) {
+        return listaCliente.get(codigo);
+    }
+    
+    public void delete(int codigo){
+        Cliente cliente = getCliente(codigo);
+        if (cliente != null){
+            listaCliente.remove(cliente);
+        }
+    }
+
+    public void altera(Cliente cliente){
+        Cliente c = getCliente(cliente.getCodigo());
+        c.setNome(cliente.getNome());
+        c.setCidade(cliente.getCidade());
+    }
 }

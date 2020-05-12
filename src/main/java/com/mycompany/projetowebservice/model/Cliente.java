@@ -17,6 +17,16 @@ public class Cliente implements ICliente, Serializable {
     private int codigo;
     private String nome;
     private ICidade cidade;
+
+    public Cliente() {
+    }
+
+    public Cliente(int codigo, String nome, ICidade cidade) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.cidade = cidade;
+    }
+    
     
     @Override
     public int getCodigo() {
